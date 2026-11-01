@@ -1,0 +1,1947 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Argav Thakur — Full-Stack Developer & AI Enthusiast</title>
+  <meta name="description"
+    content="Personal portfolio of Argav Thakur — B.Tech CSE student at Lovely Professional University, Full-Stack Developer, and AI Enthusiast building digital products and autonomous hardware." />
+
+  <!-- Fonts: Plus Jakarta Sans & Sora -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Devicons & FontAwesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════
+       PIXEL-PERFECT DESIGN SYSTEM (Identical to Reference)
+       ═══════════════════════════════════════════════════
+       Canvas Background: #F8F7F3 (Reference Warm Off-White)
+       Card Background:   #FFFFFF (Pure White)
+       Text Colors:       #0A0A0A / #111111 / #555555
+       Buttons:           Black (#000000) & Outline White
+       Accents:           Subtle Forest Green & Mint Touches
+       ═══════════════════════════════════════════════════ */
+    :root {
+      --bg-page: #F8F7F3;
+      --bg-card: #FFFFFF;
+      --bg-card-subtle: #FAF9F6;
+      --text-heading: #0A0A0A;
+      --text-body: #333333;
+      --text-muted: #666666;
+      --text-light: #888888;
+
+      /* Accents (Forest & Mint Palette) */
+      --c-forest: #0E2D28;
+      --c-mid: #235347;
+      --c-sage: #8EB69B;
+      --c-mint: #DAF1DE;
+      --c-mint-subtle: #F0F6F2;
+
+      /* UI Controls */
+      --btn-black: #000000;
+      --btn-black-hover: #222222;
+      --border-light: rgba(0, 0, 0, 0.08);
+      --border-card: #E8E6E0;
+
+      /* Typography */
+      --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Radii */
+      --r-pill: 9999px;
+      --r-card: 18px;
+      --r-card-sm: 12px;
+    }
+
+    /* ── Reset & Base ─────────────────────────────── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--bg-page);
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-heading);
+      font-family: var(--font-display);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: #000000;
+      color: #FFFFFF;
+    }
+
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-page);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #D0CEC8;
+      border-radius: var(--r-pill);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #999999;
+    }
+
+    /* Reading Progress Bar */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2.5px;
+      width: 0%;
+      background: #000000;
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+
+    /* ── Container ────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Section Header Typography (Ditto to Ref) ─── */
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #0A66C2;
+      /* Reference blue/accent pill tone */
+      margin-bottom: 0.65rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.8vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--text-heading);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 2.75rem;
+      max-width: 600px;
+    }
+
+    /* ── Buttons (Identical to Reference) ─────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.45rem;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      border-radius: var(--r-pill);
+      transition: all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-black {
+      background: #000000;
+      color: #FFFFFF;
+      border: 1px solid #000000;
+    }
+
+    .btn-black:hover {
+      background: #262626;
+      border-color: #262626;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+    }
+
+    .btn-outline {
+      background: #FFFFFF;
+      color: #111111;
+      border: 1px solid rgba(0, 0, 0, 0.14);
+    }
+
+    .btn-outline:hover {
+      background: #F2F1EC;
+      border-color: #000000;
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 0.42rem 1rem;
+      font-size: 0.75rem;
+    }
+
+    /* ── Scroll Reveal ───────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .delay-1 {
+      transition-delay: 0.08s;
+    }
+
+    .delay-2 {
+      transition-delay: 0.16s;
+    }
+
+    .delay-3 {
+      transition-delay: 0.24s;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       NAVIGATION BAR (Ditto to Reference)
+       ═══════════════════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 990;
+      background: rgba(248, 247, 243, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-light);
+      transition: all 0.25s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(248, 247, 243, 0.98);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    /* Brand: Clean simple circle 'A' + Argav */
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      text-decoration: none;
+      color: #111111;
+    }
+
+    .nav-brand-symbol {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--r-pill);
+      background: #000000;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .nav-brand-text {
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #111111;
+    }
+
+    .nav-center-menu {
+      display: flex;
+      align-items: center;
+      gap: 1.85rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: #555555;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: #000000;
+    }
+
+    /* Top Right: Black GitHub & White LinkedIn Buttons */
+    .nav-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .nav-btn-github {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.42rem 0.95rem;
+      border-radius: var(--r-pill);
+      font-size: 0.76rem;
+      font-weight: 600;
+      background: #000000;
+      color: #FFFFFF;
+      text-decoration: none;
+      border: 1px solid #000000;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn-github:hover {
+      background: #24292F;
+      border-color: #24292F;
+      transform: translateY(-1px);
+    }
+
+    .nav-btn-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.42rem 0.95rem;
+      border-radius: var(--r-pill);
+      font-size: 0.76rem;
+      font-weight: 600;
+      background: #FFFFFF;
+      color: #111111;
+      text-decoration: none;
+      border: 1px solid rgba(0, 0, 0, 0.14);
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn-linkedin:hover {
+      background: #FFFFFF;
+      border-color: #000000;
+      transform: translateY(-1px);
+    }
+
+    .nav-btn-linkedin i {
+      color: #0A66C2;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--r-pill);
+      cursor: pointer;
+      padding: 7px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #000000;
+      border-radius: 2px;
+    }
+
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(248, 247, 243, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 980;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .mobile-overlay.open {
+      display: flex;
+    }
+
+    .mobile-overlay .nav-link {
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       HERO SECTION (Ditto to Reference Image)
+       ═══════════════════════════════════════════════════ */
+    #hero {
+      padding-top: 130px;
+      padding-bottom: 80px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow-text {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0A66C2;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-main-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      color: var(--text-heading);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-desc-p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin-bottom: 1.85rem;
+    }
+
+    .hero-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-status-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: #555555;
+    }
+
+    .hero-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+    }
+
+    /* Circular Profile Photo Frame (Exact Reference) */
+    .hero-photo-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-circular-avatar {
+      width: clamp(220px, 24vw, 290px);
+      height: clamp(220px, 24vw, 290px);
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #FFFFFF;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+      background: #E8E6E0;
+    }
+
+    .hero-avatar-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       ABOUT SECTION ("More than just code." — Ditto)
+       ═══════════════════════════════════════════════════ */
+    #about {
+      padding: 85px 0;
+      position: relative;
+    }
+
+    .about-story-p {
+      font-size: 1.02rem;
+      line-height: 1.75;
+      color: var(--text-body);
+      max-width: 740px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Three Compact Cards in a row (Ditto to Reference) */
+    .about-cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .about-card-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--r-card-sm);
+      padding: 1.6rem 1.5rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .about-card-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .about-box-number {
+      font-family: var(--font-heading);
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #0A66C2;
+      /* Reference accent tone */
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .about-box-headline {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 0.35rem;
+    }
+
+    .about-box-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       TECH STACK SECTION ("Tools I use to build.")
+       ═══════════════════════════════════════════════════ */
+    #skills {
+      padding: 85px 0;
+      position: relative;
+    }
+
+    .stack-category-container {
+      margin-bottom: 2rem;
+    }
+
+    .stack-category-container:last-child {
+      margin-bottom: 0;
+    }
+
+    .stack-cat-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #777777;
+      margin-bottom: 0.85rem;
+    }
+
+    .stack-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    /* White Pill Chips (Ditto to Reference) */
+    .stack-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.55rem 1.15rem;
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--r-pill);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s ease;
+      cursor: default;
+    }
+
+    .stack-badge-pill i {
+      font-size: 1.1rem;
+    }
+
+    .stack-badge-pill:hover {
+      border-color: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       MARQUEE TICKER BANNER (Ditto to Reference)
+       ═══════════════════════════════════════════════════ */
+    .ticker-bar-wrap {
+      width: 100%;
+      background: var(--bg-page);
+      border-top: 1px solid var(--border-card);
+      border-bottom: 1px solid var(--border-card);
+      overflow: hidden;
+      padding: 0.85rem 0;
+      margin: 40px 0;
+    }
+
+    .ticker-scroll-inner {
+      display: flex;
+      gap: 2.5rem;
+      white-space: nowrap;
+      animation: tickerAnimation 24s linear infinite;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #666666;
+    }
+
+    .ticker-scroll-inner span.dot {
+      color: #999999;
+      margin: 0 0.5rem;
+    }
+
+    @keyframes tickerAnimation {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════
+       PROJECTS SECTION ("Things I've built." — Ditto)
+       ═══════════════════════════════════════════════════ */
+    #projects {
+      padding: 85px 0;
+      position: relative;
+    }
+
+    .projects-grid-2col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+
+    .project-card-item {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--r-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+      transition: all 0.28s ease;
+    }
+
+    .project-card-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+    }
+
+    /* Project Preview Banner Frame */
+    .project-preview-frame {
+      width: 100%;
+      height: 210px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #111111 0%, #222222 100%);
+    }
+
+    .project-preview-frame.frame-1 {
+      background: linear-gradient(135deg, #051F20 0%, #163B32 100%);
+    }
+
+    .project-preview-frame.frame-2 {
+      background: linear-gradient(135deg, #0B2B26 0%, #235347 100%);
+    }
+
+    .project-preview-frame.frame-3 {
+      background: linear-gradient(135deg, #163B32 0%, #051F20 100%);
+    }
+
+    .project-preview-frame.frame-4 {
+      background: linear-gradient(135deg, #000000 0%, #1A1F26 100%);
+    }
+
+    .project-inner-mockup {
+      width: 90%;
+      max-width: 360px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+    }
+
+    .mockup-dot-group {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 0.65rem;
+      opacity: 0.7;
+    }
+
+    .mockup-dot-item {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #888888;
+    }
+
+    .project-content-padding {
+      padding: 1.6rem 1.65rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .project-cat-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #0A66C2;
+      margin-bottom: 0.45rem;
+    }
+
+    .project-item-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-heading);
+      margin-bottom: 0.55rem;
+      line-height: 1.3;
+    }
+
+    .project-item-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-tags-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 1.45rem;
+    }
+
+    .project-tag-pill {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--r-pill);
+      background: #F2F1EC;
+      color: #333333;
+    }
+
+    .project-actions-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: auto;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       CERTIFICATIONS SECTION ("Built under pressure.")
+       ═══════════════════════════════════════════════════ */
+    #certifications {
+      padding: 85px 0;
+      position: relative;
+    }
+
+    .cert-grid-2col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+
+    .cert-card-item {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--r-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.02);
+      transition: all 0.26s ease;
+    }
+
+    .cert-card-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Certificate Graphic Frame (Landscape Proportion) */
+    .cert-graphic-canvas {
+      width: 100%;
+      height: 165px;
+      position: relative;
+      border-bottom: 1px solid var(--border-card);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      text-align: center;
+      background: linear-gradient(135deg, #051F20 0%, #163B32 100%);
+      color: #FFFFFF;
+    }
+
+    .cert-graphic-canvas.c-bg-2 {
+      background: linear-gradient(135deg, #0B2B26 0%, #235347 100%);
+    }
+
+    .cert-graphic-canvas.c-bg-3 {
+      background: linear-gradient(135deg, #163B32 0%, #051F20 100%);
+    }
+
+    .cert-graphic-canvas.c-bg-4 {
+      background: linear-gradient(135deg, #000000 0%, #1A1F26 100%);
+    }
+
+    .cert-graphic-canvas i {
+      font-size: 2.2rem;
+      color: var(--c-sage);
+      margin-bottom: 0.45rem;
+    }
+
+    .cert-seal-text {
+      font-size: 0.68rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--r-pill);
+      color: #FFFFFF;
+    }
+
+    .cert-text-body {
+      padding: 1.45rem 1.55rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .cert-item-title {
+      font-family: var(--font-heading);
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 0.3rem;
+      line-height: 1.35;
+    }
+
+    .cert-item-org {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #555555;
+      margin-bottom: 0.65rem;
+    }
+
+    .cert-item-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1.15rem;
+    }
+
+    .cert-card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border-card);
+    }
+
+    .cert-year-label {
+      font-size: 0.72rem;
+      color: #777777;
+      font-weight: 600;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       CONTACT FLOATING CARD (Ditto to Reference)
+       ═══════════════════════════════════════════════════ */
+    #contact {
+      padding: 90px 0 60px;
+      position: relative;
+    }
+
+    .contact-centered-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: 24px;
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 4.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    }
+
+    .contact-card-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.8vw, 2.75rem);
+      font-weight: 800;
+      color: var(--text-heading);
+      line-height: 1.15;
+      margin-bottom: 0.85rem;
+    }
+
+    .contact-card-sub {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto 2.15rem;
+      line-height: 1.65;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       CONTACT CARD BUTTONS & MINIMAL FOOTER
+       ═══════════════════════════════════════════════════ */
+    .contact-card-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .bottom-copyright-bar {
+      border-top: 1px solid var(--border-card);
+      padding: 2.25rem 0 1.25rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: #888888;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       INTERACTIVE MODAL FOR CERTIFICATES & DETAILS
+       ═══════════════════════════════════════════════════ */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 1100;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-dialog {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 560px;
+      padding: 2.25rem;
+      position: relative;
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.25);
+      animation: modalPop 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalPop {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 34px;
+      height: 34px;
+      border-radius: var(--r-pill);
+      background: #F2F1EC;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: #111111;
+      transition: all 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      background: #000000;
+      color: #FFFFFF;
+    }
+
+    .modal-content-area {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-cert-preview {
+      width: 100%;
+      height: 200px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #051F20, #163B32);
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+      margin-bottom: 1.35rem;
+      border: 2px dashed rgba(255, 255, 255, 0.2);
+    }
+
+    .modal-cert-preview i {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--c-sage);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       REAL CERTIFICATE CARDS (Image Preview Style)
+       ═══════════════════════════════════════════════════ */
+    .cert-card-real {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--r-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.02);
+      transition: all 0.26s ease;
+      cursor: pointer;
+    }
+
+    .cert-card-real:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09);
+    }
+
+    .cert-card-real:hover .cert-img-overlay {
+      opacity: 1;
+    }
+
+    .cert-img-frame {
+      width: 100%;
+      height: 185px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-card);
+      background: #f0ede8;
+    }
+
+    .cert-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .cert-card-real:hover .cert-img-frame img {
+      transform: scale(1.04);
+    }
+
+    .cert-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+
+    .cert-img-overlay span {
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 0.5rem 1.1rem;
+      border-radius: var(--r-pill);
+      backdrop-filter: blur(4px);
+    }
+
+    /* Full-screen cert image viewer modal */
+    .cert-viewer-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1200;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .cert-viewer-backdrop.open {
+      display: flex;
+    }
+
+    .cert-viewer-img-box {
+      position: relative;
+      max-width: 860px;
+      width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+      animation: modalPop 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cert-viewer-img-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .cert-viewer-close {
+      position: absolute;
+      top: 0.85rem;
+      right: 0.85rem;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--r-pill);
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #FFFFFF;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      z-index: 10;
+    }
+
+    .cert-viewer-close:hover {
+      background: #000000;
+    }
+
+    .cert-viewer-actions {
+      display: flex;
+      gap: 0.85rem;
+      align-items: center;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       RESPONSIVE BREAKPOINTS
+       ═══════════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+      }
+
+      .hero-actions-row {
+        justify-content: center;
+      }
+
+      .about-cards-row {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid-2col {
+        grid-template-columns: 1fr;
+      }
+
+      .cert-grid-2col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-center-menu {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .contact-centered-card {
+        padding: 2.5rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ═══════════════════════════════════════════════════
+       NAVIGATION (Exact Reference Layout)
+       ═══════════════════════════════════════════════════ -->
+  <nav id="mainNav">
+    <div class="container nav-inner">
+      <!-- Left: Logo -->
+      <a href="#hero" class="nav-brand" aria-label="Argav Thakur Home">
+        <div class="nav-brand-symbol">A</div>
+        <span class="nav-brand-text">Argav</span>
+      </a>
+
+      <!-- Center: Menu Links -->
+      <ul class="nav-center-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#certifications" class="nav-link">Certificates</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Top Right: Black GitHub & White LinkedIn Buttons -->
+      <div class="nav-right-actions">
+        <a href="https://github.com/argavthakur-maker" target="_blank" rel="noopener"
+          class="nav-btn-github" aria-label="GitHub Profile">
+          <i class="fa-brands fa-github"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/argav-thakur-argav07/" target="_blank" rel="noopener"
+          class="nav-btn-linkedin" aria-label="LinkedIn Profile">
+          <i class="fa-brands fa-linkedin-in"></i>
+          <span>LinkedIn</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <a href="#about" class="nav-link mobile-nav-link">About</a>
+    <a href="#skills" class="nav-link mobile-nav-link">Skills</a>
+    <a href="#projects" class="nav-link mobile-nav-link">Projects</a>
+    <a href="#certifications" class="nav-link mobile-nav-link">Certificates</a>
+    <a href="#contact" class="nav-link mobile-nav-link">Contact</a>
+    <div style="display:flex; gap:0.75rem; margin-top:1rem;">
+      <a href="https://github.com/argavthakur-maker" target="_blank" rel="noopener" class="nav-btn-github">
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/argav-thakur-argav07/" target="_blank" rel="noopener" class="nav-btn-linkedin">
+        <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       HERO SECTION (Ditto to Reference Image)
+       ═══════════════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="container hero-grid">
+
+      <!-- Left Column: Copy & Actions -->
+      <div class="hero-left-content">
+        <p class="hero-eyebrow-text reveal">FULL-STACK DEVELOPER &amp; AI ENTHUSIAST</p>
+
+        <h1 class="hero-main-title reveal delay-1">
+          I build digital<br />
+          products<br />
+          that turn ideas into<br />
+          reality.
+        </h1>
+
+        <p class="hero-desc-p reveal delay-2">
+          Hi, I'm <strong>Argav Thakur</strong>. Computer Science undergraduate at <strong>Lovely Professional
+            University</strong>. I engineer scalable web applications with Django and React, design autonomous hardware
+          prototypes with ESP32, and solve real-world problems.
+        </p>
+
+        <div class="hero-actions-row reveal delay-3">
+          <a href="#projects" class="btn btn-black">Explore work</a>
+          <a href="./Argav-CV.pdf" class="btn btn-outline" download="Argav-Thakur-CV.pdf">View CV</a>
+        </div>
+
+        <div class="hero-status-line reveal delay-3">
+          <span class="hero-status-dot"></span>
+          <span>Available for internships &amp; collaborative roles</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Clean Circular Profile Frame -->
+      <div class="hero-photo-wrapper reveal delay-2">
+        <div class="hero-circular-avatar">
+          <img src="argav.jpg" alt="Argav Thakur" class="hero-avatar-image" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       ABOUT SECTION ("More than just code." — Ditto)
+       ═══════════════════════════════════════════════════ -->
+  <section id="about">
+    <div class="container">
+      <p class="section-eyebrow reveal">ABOUT ME</p>
+      <h2 class="section-title reveal delay-1">More than just code.</h2>
+
+      <p class="about-story-p reveal delay-2">
+        I believe the best software solutions come from deeply understanding real-world constraints. Whether architecting
+        a hostel expense ledger or configuring autonomous microcontrollers, I bring curiosity, algorithmic discipline,
+        and high standards of craft to everything I build.
+      </p>
+
+      <!-- Three Compact Highlight Cards (Exact Reference) -->
+      <div class="about-cards-row">
+        <div class="about-card-box reveal">
+          <div class="about-box-number">8.07</div>
+          <div class="about-box-headline">B.Tech CSE @ LPU</div>
+          <div class="about-box-sub">Second-year Computer Science Engineering student with strong algorithmic rigor in C++ &amp; DSA.</div>
+        </div>
+
+        <div class="about-card-box reveal delay-1">
+          <div class="about-box-number">Full-Stack</div>
+          <div class="about-card-topic about-box-headline">Architecture &amp; APIs</div>
+          <div class="about-box-sub">Clean decoupled systems built with Django, Django REST Framework, React, and TypeScript.</div>
+        </div>
+
+        <div class="about-card-box reveal delay-2">
+          <div class="about-box-number">AI &amp; IoT</div>
+          <div class="about-card-topic about-box-headline">Hardware Prototypes</div>
+          <div class="about-box-sub">Autonomous vehicle prototype built using ESP32, sensor telemetry, and motor control logic.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       TECH STACK SECTION ("Tools I use to build.")
+       ═══════════════════════════════════════════════════ -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-eyebrow reveal">MY STACK</p>
+      <h2 class="section-title reveal delay-1">Tools I use to build.</h2>
+      <p class="section-subtitle reveal delay-2">Technologies and tools I use to bring ideas to life.</p>
+
+      <!-- Category 1: Languages -->
+      <div class="stack-category-container reveal">
+        <div class="stack-cat-title">LANGUAGES</div>
+        <div class="stack-pills-row">
+          <div class="stack-badge-pill"><i class="devicon-cplusplus-plain colored"></i> C++</div>
+          <div class="stack-badge-pill"><i class="devicon-python-plain colored"></i> Python</div>
+          <div class="stack-badge-pill"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
+          <div class="stack-badge-pill"><i class="devicon-typescript-plain colored"></i> TypeScript</div>
+          <div class="stack-badge-pill"><i class="devicon-c-plain colored"></i> C</div>
+          <div class="stack-badge-pill"><i class="fa-solid fa-database"></i> SQL</div>
+        </div>
+      </div>
+
+      <!-- Category 2: Frontend -->
+      <div class="stack-category-container reveal delay-1">
+        <div class="stack-cat-title">FRONTEND</div>
+        <div class="stack-pills-row">
+          <div class="stack-badge-pill"><i class="devicon-react-original colored"></i> React</div>
+          <div class="stack-badge-pill"><i class="devicon-vitejs-plain colored"></i> Vite</div>
+          <div class="stack-badge-pill"><i class="devicon-tailwindcss-original colored"></i> Tailwind CSS</div>
+          <div class="stack-badge-pill"><i class="devicon-html5-plain colored"></i> HTML5</div>
+          <div class="stack-badge-pill"><i class="devicon-css3-plain colored"></i> CSS3</div>
+        </div>
+      </div>
+
+      <!-- Category 3: Backend & Database -->
+      <div class="stack-category-container reveal delay-2">
+        <div class="stack-cat-title">BACKEND &amp; DATABASE</div>
+        <div class="stack-pills-row">
+          <div class="stack-badge-pill"><i class="devicon-django-plain colored"></i> Django</div>
+          <div class="stack-badge-pill"><i class="fa-solid fa-network-wired"></i> Django REST Framework</div>
+          <div class="stack-badge-pill"><i class="devicon-sqlite-plain colored"></i> SQLite</div>
+          <div class="stack-badge-pill"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
+          <div class="stack-badge-pill"><i class="fa-solid fa-shield-halved"></i> JWT Auth</div>
+          <div class="stack-badge-pill"><i class="fa-solid fa-plug"></i> REST APIs</div>
+        </div>
+      </div>
+
+      <!-- Category 4: Tools & Hardware -->
+      <div class="stack-category-container reveal delay-3">
+        <div class="stack-cat-title">TOOLS &amp; HARDWARE</div>
+        <div class="stack-pills-row">
+          <div class="stack-badge-pill"><i class="fa-solid fa-microchip"></i> ESP32</div>
+          <div class="stack-badge-pill"><i class="devicon-arduino-plain colored"></i> Arduino IDE</div>
+          <div class="stack-badge-pill"><i class="devicon-git-plain colored"></i> Git</div>
+          <div class="stack-badge-pill"><i class="devicon-github-original"></i> GitHub</div>
+          <div class="stack-badge-pill"><i class="devicon-vscode-plain colored"></i> VS Code</div>
+          <div class="stack-badge-pill"><i class="fa-solid fa-wave-square"></i> Ultrasonic &amp; L298N</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       MARQUEE TICKER BANNER (Exact Reference Style)
+       ═══════════════════════════════════════════════════ -->
+  <div class="ticker-bar-wrap">
+    <div class="ticker-scroll-inner">
+      <span>BUILD</span><span class="dot">•</span>
+      <span>LEARN</span><span class="dot">•</span>
+      <span>EXPLORE</span><span class="dot">•</span>
+      <span>CREATE</span><span class="dot">•</span>
+      <span>INNOVATE</span><span class="dot">•</span>
+      <span>DEPLOY</span><span class="dot">•</span>
+      <span>BUILD</span><span class="dot">•</span>
+      <span>LEARN</span><span class="dot">•</span>
+      <span>EXPLORE</span><span class="dot">•</span>
+      <span>CREATE</span><span class="dot">•</span>
+      <span>INNOVATE</span><span class="dot">•</span>
+      <span>DEPLOY</span><span class="dot">•</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       PROJECTS SECTION ("Things I've built." — Ditto)
+       ═══════════════════════════════════════════════════ -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-eyebrow reveal">SELECTED WORK</p>
+      <h2 class="section-title reveal delay-1">Things I've built.</h2>
+      <p class="section-subtitle reveal delay-2">A selection of projects that showcase my skills and passion for building.</p>
+
+      <div class="projects-grid-2col">
+
+        <!-- Project 1: Expense Tracker -->
+        <div class="project-card-item reveal">
+          <div class="project-preview-frame frame-1">
+            <div class="project-inner-mockup">
+              <div class="mockup-dot-group">
+                <span class="mockup-dot-item"></span>
+                <span class="mockup-dot-item"></span>
+                <span class="mockup-dot-item"></span>
+                <span style="margin-left:auto; font-size:0.65rem; color:#A0FFA0;">expense_tracker.py</span>
+              </div>
+              <div>&gt; POST /api/pocket-money/budget</div>
+              <div style="color:#A0FFA0; margin: 0.2rem 0;">Status: 200 OK — Savings Target Met</div>
+              <div style="background:rgba(255,255,255,0.15); border-radius:99px; padding:0.25rem 0.65rem; margin-top:0.4rem; display:inline-block;">
+                <i class="fa-solid fa-wallet"></i> Monthly Pocket Money Managed
+              </div>
+            </div>
+          </div>
+
+          <div class="project-content-padding">
+            <span class="project-cat-label">Web Application · Featured</span>
+            <h3 class="project-item-title">Expense Tracker</h3>
+            <p class="project-item-desc">
+              A smart budget and expense management web app for hostel students to track spending, manage monthly pocket money, and achieve savings goals.
+            </p>
+
+            <div class="project-tags-flex">
+              <span class="project-tag-pill">Python</span>
+              <span class="project-tag-pill">Django</span>
+              <span class="project-tag-pill">JavaScript</span>
+              <span class="project-tag-pill">HTML5</span>
+              <span class="project-tag-pill">CSS3</span>
+              <span class="project-tag-pill">REST API</span>
+            </div>
+
+            <div class="project-actions-footer">
+              <a href="https://github.com/argavthakur-maker/Expense-tracker" target="_blank" rel="noopener" class="btn btn-black btn-sm">
+                <i class="fa-brands fa-github"></i> Repository
+              </a>
+              <button class="btn btn-outline btn-sm open-details-btn" data-project="hostel">
+                Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: AI Automated Taxi Car (ESP32) -->
+        <div class="project-card-item reveal delay-1">
+          <div class="project-preview-frame frame-2">
+            <div class="project-inner-mockup">
+              <div class="mockup-dot-group">
+                <span class="mockup-dot-item"></span>
+                <span class="mockup-dot-item"></span>
+                <span class="mockup-dot-item"></span>
+                <span style="margin-left:auto; font-size:0.65rem; color:#A0FFA0;">esp32_firmware.ino</span>
+              </div>
+              <div>[RADAR] Ultrasonic distance: 38cm</div>
+              <div style="color:#A0FFA0; margin: 0.2rem 0;">Obstacle Detected &rarr; Steer Right</div>
+              <div style="background:rgba(255,255,255,0.15); border-radius:99px; padding:0.25rem 0.65rem; margin-top:0.4rem; display:inline-block;">
+                <i class="fa-solid fa-microchip"></i> L298N PWM 85% Active
+              </div>
+            </div>
+          </div>
+
+          <div class="project-content-padding">
+            <span class="project-cat-label">Hardware Prototype · Built</span>
+            <h3 class="project-item-title">AI Automated Taxi Car (ESP32)</h3>
+            <p class="project-item-desc">
+              Autonomous vehicle prototype engineered with ESP32 in Embedded C. Features real-time ultrasonic proximity
+              telemetry, infrared lane/obstacle verification, closed-loop motor driver control, and collision avoidance logic.
+            </p>
+
+            <div class="project-tags-flex">
+              <span class="project-tag-pill">ESP32</span>
+              <span class="project-tag-pill">Embedded C</span>
+              <span class="project-tag-pill">Ultrasonic Sensor</span>
+              <span class="project-tag-pill">L298N Driver</span>
+              <span class="project-tag-pill">Arduino IDE</span>
+            </div>
+
+            <div class="project-actions-footer">
+              <a href="https://github.com/argavthakur-maker" target="_blank" rel="noopener" class="btn btn-black btn-sm">
+                <i class="fa-brands fa-github"></i> Repository
+              </a>
+              <button class="btn btn-outline btn-sm open-details-btn" data-project="iot">
+                Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       CERTIFICATIONS SECTION ("Built under pressure.")
+       ═══════════════════════════════════════════════════ -->
+  <section id="certifications">
+    <div class="container">
+      <p class="section-eyebrow reveal">ACHIEVEMENTS</p>
+      <h2 class="section-title reveal delay-1">Built under pressure. Learned even more.</h2>
+      <p class="section-subtitle reveal delay-2">Hackathons, verified certifications and competitive athletic achievements.</p>
+
+      <div class="cert-grid-2col">
+
+        <!-- NEW Cert A: HACK-ADHAAY (LPU Hackathon) -->
+        <div class="cert-card-real reveal open-real-cert" data-img="cert-hackathon.png" data-pdf="cert-hackathon.pdf" data-title="HACK-ADHAAY — National Level Hackathon" data-org="Lovely Professional University (LPU) · Team CodeX" data-year="2026">
+          <div class="cert-img-frame">
+            <img src="cert-hackathon.png" alt="HACK-ADHAAY Certificate" loading="lazy" />
+            <div class="cert-img-overlay"><span>View Certificate ↗</span></div>
+          </div>
+          <div class="cert-text-body">
+            <h3 class="cert-item-title">HACK-ADHAAY (National Level Hackathon)</h3>
+            <p class="cert-item-org">Lovely Professional University (LPU) · Team CodeX</p>
+            <p class="cert-item-desc">Participated in HACK-ADHAAY, a national level hackathon hosted by LPU on Unstop, competing as Team CodeX against participants from across the country.</p>
+            <div class="cert-card-bottom">
+              <span class="cert-year-label">2026 · Verified</span>
+              <button class="btn btn-outline btn-sm open-real-cert-btn" data-img="cert-hackathon.png" data-pdf="cert-hackathon.pdf" data-title="HACK-ADHAAY — National Level Hackathon" data-org="LPU · Team CodeX" data-year="2026">
+                View Certificate ↗
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW Cert B: Hacktoberfest 2026 -->
+        <div class="cert-card-real reveal delay-1 open-real-cert" data-img="cert-hacktoberfest.png" data-pdf="cert-hacktoberfest.pdf" data-title="Hacktoberfest 2026 — Certificate of Attendance" data-org="Hacktoberfest · MLH × DEV · DigitalOcean" data-year="Oct 23, 2026">
+          <div class="cert-img-frame">
+            <img src="cert-hacktoberfest.png" alt="Hacktoberfest 2026 Certificate" loading="lazy" />
+            <div class="cert-img-overlay"><span>View Certificate ↗</span></div>
+          </div>
+          <div class="cert-text-body">
+            <h3 class="cert-item-title">Hacktoberfest 26 — Certificate of Attendance</h3>
+            <p class="cert-item-org">Hacktoberfest Meetup Phagwara × AWS Student Builder Group at LPU</p>
+            <p class="cert-item-desc">Attended the Hacktoberfest Meetup Phagwara × AWS Student Builder Group at LPU in person, powered by MLH × DEV and DigitalOcean.</p>
+            <div class="cert-card-bottom">
+              <span class="cert-year-label">Oct 23, 2026 · Verified</span>
+              <button class="btn btn-outline btn-sm open-real-cert-btn" data-img="cert-hacktoberfest.png" data-pdf="cert-hacktoberfest.pdf" data-title="Hacktoberfest 2026 — Certificate of Attendance" data-org="Hacktoberfest · MLH × DEV · DigitalOcean" data-year="Oct 23, 2026">
+                View Certificate ↗
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW Cert C: Oracle AI Database Foundations Associate -->
+        <div class="cert-card-real reveal delay-2 open-real-cert" data-img="cert-oracle.png" data-pdf="cert-oracle.pdf" data-title="Oracle AI Database Certified Foundations Associate" data-org="Oracle University" data-year="Oct 2026 · Valid until Oct 2028">
+          <div class="cert-img-frame">
+            <img src="cert-oracle.png" alt="Oracle Certificate" loading="lazy" />
+            <div class="cert-img-overlay"><span>View Certificate ↗</span></div>
+          </div>
+          <div class="cert-text-body">
+            <h3 class="cert-item-title">Oracle AI Database Certified Foundations Associate</h3>
+            <p class="cert-item-org">Oracle University</p>
+            <p class="cert-item-desc">Recognized by Oracle Corporation as Oracle Certified. Credential ID: 103555030OCI26DCFA. Valid until October 04, 2028.</p>
+            <div class="cert-card-bottom">
+              <span class="cert-year-label">Oct 2026 · Valid to Oct 2028</span>
+              <button class="btn btn-outline btn-sm open-real-cert-btn" data-img="cert-oracle.png" data-pdf="cert-oracle.pdf" data-title="Oracle AI Database Certified Foundations Associate" data-org="Oracle University" data-year="Oct 2026 · Valid until Oct 2028">
+                View Certificate ↗
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.cert-grid-2col -->
+    </div><!-- /.container -->
+  </section><!-- /#certifications -->
+
+  <!-- ═══════════════════════════════════════════════════
+       CONTACT FLOATING CARD (Ditto to Reference)
+       ═══════════════════════════════════════════════════ -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-centered-card reveal">
+        <p class="section-eyebrow">GET IN TOUCH</p>
+        <h2 class="contact-card-title">Let's connect &amp; build together.</h2>
+        <p class="contact-card-sub">
+          I am actively seeking <strong>software engineering internships</strong>, collaborative full-stack projects, and
+          discussions around AI and embedded systems. My inbox is always open.
+        </p>
+
+        <!-- Direct Email Option (Opens directly in Gmail) -->
+        <div class="contact-card-btns">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=argavthakur@gmail.com" target="_blank" rel="noopener" class="btn btn-black" style="padding: 0.95rem 2.25rem; font-size: 0.96rem;">
+            <i class="fa-solid fa-paper-plane"></i> Send Email
+          </a>
+        </div>
+      </div>
+
+      <!-- Minimal Bottom Copyright (Redundant brand, menu links & social icons removed per request) -->
+      <div class="bottom-copyright-bar">
+        &copy; 2026 Argav Thakur. Handcrafted with modern web standards and clean design.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       FULL-SCREEN CERTIFICATE IMAGE VIEWER
+       ═══════════════════════════════════════════════════ -->
+  <div class="cert-viewer-backdrop" id="certViewer" role="dialog" aria-modal="true" aria-label="Certificate viewer">
+    <div class="cert-viewer-img-box">
+      <button class="cert-viewer-close" id="certViewerClose" aria-label="Close certificate viewer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <img src="" alt="" id="certViewerImg" />
+    </div>
+    <div class="cert-viewer-actions">
+      <a href="#" id="certViewerDownload" class="btn btn-black" download target="_blank" rel="noopener">
+        <i class="fa-solid fa-download"></i> Download PDF
+      </a>
+      <button class="btn btn-outline" id="certViewerDismiss" style="background:rgba(255,255,255,0.9);">
+        <i class="fa-solid fa-xmark"></i> Close
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       INTERACTIVE MODAL FOR CERTIFICATES & DETAILS
+       ═══════════════════════════════════════════════════ -->
+  <div class="modal-backdrop" id="infoModal" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-content-area" id="modalContentArea">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       JAVASCRIPT INTERACTIONS
+       ═══════════════════════════════════════════════════ -->
+  <script>
+    // ── Reading Scroll Progress Bar ───────────────────
+    const scrollProgress = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      scrollProgress.style.width = progress + '%';
+
+      // Navbar scroll styling
+      const nav = document.getElementById('mainNav');
+      if (window.scrollY > 25) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // ── Mobile Navigation Toggle ──────────────────────
+    const navToggle = document.getElementById('navToggle');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      mobileOverlay.classList.toggle('open');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('open');
+        mobileOverlay.classList.remove('open');
+      });
+    });
+
+    // ── Scroll Reveal via Intersection Observer ───────
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -25px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ── Modal Data & Handlers ─────────────────────────
+    const modal = document.getElementById('infoModal');
+    const modalClose = document.getElementById('modalCloseBtn');
+    const modalContent = document.getElementById('modalContentArea');
+
+    const certData = {
+      buildstorm: {
+        title: "Hackathon Participant — Buildstorm",
+        issuer: "PlaytoUnite & QubicSquare Technologies Pvt. Ltd.",
+        year: "2025",
+        icon: "fa-solid fa-code",
+        badge: "Competitive Hackathon",
+        desc: "Participated in the intense Buildstorm hackathon, demonstrating high-speed full-stack problem solving, rapid API integration, and architectural teamwork under strict time pressure.",
+        verified: "Official Verification Recorded"
+      },
+      leadership: {
+        title: "Mastering Leadership Skills",
+        issuer: "UniAthena",
+        year: "2025",
+        icon: "fa-solid fa-award",
+        badge: "Executive Certification",
+        desc: "Executive certification covering strategic management, collaborative leadership, cross-functional engineering team coordination, and structured conflict resolution.",
+        verified: "Certified by UniAthena"
+      },
+      aiweb: {
+        title: "Artificial Intelligence & Web Development Workshops",
+        issuer: "Academic & Industry Conferences",
+        year: "2024–2025",
+        icon: "fa-solid fa-brain",
+        badge: "Technical Training Series",
+        desc: "Practical hands-on workshops exploring modern web app frameworks, REST architecture, intelligent data pipelines, and machine learning fundamentals.",
+        verified: "Workshop Completion Verified"
+      },
+      volleyball: {
+        title: "District-Level Volleyball Championship",
+        issuer: "Inter-District Athletic Sports Association",
+        year: "Championship Winner",
+        icon: "fa-solid fa-trophy",
+        badge: "Athletics Championship",
+        desc: "Won the district-level tournament representing the district volleyball team. Demanded rigorous discipline, exceptional team synchrony, leadership on the court, and peak focus under competitive pressure.",
+        verified: "Tournament Winner Honors"
+      }
+    };
+
+    const projectData = {
+      hostel: {
+        title: "Expense Tracker",
+        category: "Featured Web Application",
+        stack: "Python · Django · JavaScript · HTML5 · CSS3 · REST API",
+        desc: "A smart budget and expense management web app for hostel students to track spending, manage monthly pocket money, and achieve savings goals. Features category budgeting, real-time transaction logging, and automated savings goal monitoring.",
+        repo: "https://github.com/argavthakur-maker/Expense-tracker"
+      },
+      iot: {
+        title: "AI Automated Taxi Car (ESP32)",
+        category: "Autonomous Hardware Prototype",
+        stack: "ESP32 · Embedded C · Ultrasonic Sensor · L298N Driver · Arduino IDE",
+        desc: "Built on an ESP32 microcontroller running custom navigation algorithms in Embedded C. Merges ultrasonic distance telemetry with IR sensing to automate driving decisions, steer away from physical obstacles, and maintain safe autonomous cruising.",
+        repo: "https://github.com/argavthakur-maker"
+      }
+    };
+
+    // Open Certificate Modal
+    document.querySelectorAll('.open-cert-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.getAttribute('data-cert');
+        const c = certData[key];
+        if (!c) return;
+
+        modalContent.innerHTML = `
+          <div class="modal-cert-preview">
+            <i class="${c.icon}"></i>
+            <span style="font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--c-sage);">${c.badge}</span>
+            <h3 style="font-family:var(--font-heading); font-size:1.35rem; font-weight:800; margin-top:0.35rem; color:#FFFFFF;">${c.title}</h3>
+            <p style="font-size:0.85rem; color:#EEEEEE; margin-top:0.25rem;">${c.issuer}</p>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+            <span style="font-size:0.75rem; font-weight:700; color:#111111; text-transform:uppercase; letter-spacing:0.08em;">${c.year}</span>
+            <span style="font-size:0.75rem; background:#F2F1EC; color:#000000; padding:0.25rem 0.65rem; border-radius:var(--r-pill); font-weight:600;"><i class="fa-solid fa-circle-check"></i> ${c.verified}</span>
+          </div>
+          <p style="font-size:0.92rem; color:var(--text-body); line-height:1.7; margin-bottom:1.5rem;">${c.desc}</p>
+          <div style="display:flex; justify-content:flex-end;">
+            <button class="btn btn-black btn-sm" onclick="closeModal()">Close</button>
+          </div>
+        `;
+        modal.classList.add('open');
+      });
+    });
+
+    // Open Project Details Modal
+    document.querySelectorAll('.open-details-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.getAttribute('data-project');
+        const p = projectData[key];
+        if (!p) return;
+
+        modalContent.innerHTML = `
+          <div style="margin-bottom:1.25rem;">
+            <span style="font-size:0.72rem; font-weight:700; color:#0A66C2; text-transform:uppercase; letter-spacing:0.1em;">${p.category}</span>
+            <h3 style="font-family:var(--font-heading); font-size:1.4rem; font-weight:800; color:#000000; margin-top:0.25rem;">${p.title}</h3>
+          </div>
+          <div style="background:#F2F1EC; border-radius:10px; padding:0.75rem 1rem; margin-bottom:1.25rem; font-size:0.8rem; font-weight:600; color:#111111; font-family:var(--font-mono);">
+            <i class="fa-solid fa-code"></i> ${p.stack}
+          </div>
+          <p style="font-size:0.92rem; color:var(--text-body); line-height:1.7; margin-bottom:1.75rem;">${p.desc}</p>
+          <div style="display:flex; gap:0.75rem; justify-content:flex-end;">
+            <a href="${p.repo}" target="_blank" rel="noopener" class="btn btn-black btn-sm">
+              <i class="fa-brands fa-github"></i> View GitHub Repo
+            </a>
+            <button class="btn btn-outline btn-sm" onclick="closeModal()">Close</button>
+          </div>
+        `;
+        modal.classList.add('open');
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove('open');
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+    // ── Real Certificate Viewer ───────────────────────
+    const certViewer = document.getElementById('certViewer');
+    const certViewerImg = document.getElementById('certViewerImg');
+    const certViewerDownload = document.getElementById('certViewerDownload');
+    const certViewerClose = document.getElementById('certViewerClose');
+    const certViewerDismiss = document.getElementById('certViewerDismiss');
+
+    function openCertViewer(imgSrc, pdfSrc, title) {
+      certViewerImg.src = imgSrc;
+      certViewerImg.alt = title;
+      certViewerDownload.href = pdfSrc;
+      certViewerDownload.setAttribute('download', title + '.pdf');
+      certViewer.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCertViewer() {
+      certViewer.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Clicking anywhere on the real cert card opens the viewer
+    document.querySelectorAll('.open-real-cert').forEach(card => {
+      card.addEventListener('click', (e) => {
+        // Prevent double-firing if the button inside was clicked
+        if (e.target.closest('.open-real-cert-btn')) return;
+        openCertViewer(
+          card.dataset.img,
+          card.dataset.pdf,
+          card.dataset.title
+        );
+      });
+    });
+
+    // "View Certificate" button inside each card
+    document.querySelectorAll('.open-real-cert-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openCertViewer(btn.dataset.img, btn.dataset.pdf, btn.dataset.title);
+      });
+    });
+
+    certViewerClose.addEventListener('click', closeCertViewer);
+    certViewerDismiss.addEventListener('click', closeCertViewer);
+    certViewer.addEventListener('click', (e) => {
+      if (e.target === certViewer) closeCertViewer();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && certViewer.classList.contains('open')) closeCertViewer();
+    });
+  </script>
+</body>
+
+</html>
